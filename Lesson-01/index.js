@@ -1,13 +1,15 @@
 import {productInfo, greet, sumUpTo, square, isEven, 
         firstElement, sum, getOpjValue, getOpjName, stringLength,
         toUpperCase, formatCurrency, max, isPrime, repeatString,
-        sumOdd, sumGreaterThan, formatDate, firstThree, containsChar} from './utils.js';
+        sumOdd, sumGreaterThan, formatDate, firstThree, containsChar,
+        mergeArrays, countOccurences, filterOdd, greaterThan, factorial,
+        separateEvenOdd} from './utils.js';
 
 // 1
-productInfo("Sách", 20000);
+console.log(productInfo("Sách", 20000));
 
 // 2
-greet("An");
+console.log(greet("An"));
 
 // 3
 sumUpTo(5);
@@ -26,7 +28,7 @@ sum(1, 2, 3, 4);
 
 // 8
 const user = {name: "Nam", age: 30};
-getOpjValue(user);
+console.log(getOpjValue(user));
 
 // 9
 const people = [{name: "An"}, {name: "Bình"}];
@@ -64,3 +66,21 @@ firstThree([1, 2, 3, 4, 5]);
 
 // 20
 containsChar("javascript", "i");
+
+// 21
+mergeArrays([1, 2], [3, 4]);
+
+// 22
+countOccurences([1, 2, 2, 3, 2], 2);
+
+// 23
+filterOdd([1, 2, 3, 4]);
+
+// 24
+greaterThan([1, 2, 3, 4], 2)
+
+// 25
+factorial(5);
+
+// 26
+separateEvenOdd([1, 2, 3, 4]);

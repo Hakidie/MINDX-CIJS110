@@ -1,12 +1,13 @@
+
 // 1
 export function productInfo(item, price) {
     const formattedPrice = price.toLocaleString('en-US');
-    console.log(`Sản phẩm: ${item}, Giá: ${formattedPrice} VNĐ`);
+    return `Sản phẩm: ${item}, Giá: ${formattedPrice} VNĐ`;
 }
 
 // 2
 export function greet(name) {
-    console.log("Xin chào, " + name + "!");
+    return `Xin chào, ${name}!`;
 }
 
 // 3
@@ -42,9 +43,9 @@ export function sum(...number) {
 
 // 8
 export function getOpjValue(user) {
-    let name = user.name;
-    let age = user.age;
-    console.log("Name: " + name + ", Age: " + age);
+    // let name = user.name;
+    // let age = user.age;
+    return `Name: ${user.name}, Age: ${user.age}`;
 }
 
 // 9
@@ -132,4 +133,53 @@ export function firstThree(array) {
 export function containsChar(string, char) {
     const exist = string.includes(char);
     console.log(exist);
+}
+
+// 21
+export function mergeArrays(arrayA, arrayB) {
+    const arrayC = [...arrayA, ...arrayB];
+    console.log(arrayC);
+}
+
+// 22
+export function countOccurences(array, number) {
+    const count = array.reduce((total, element) => {
+        return element === number ? ++total : total;
+    }, 0);
+
+    console.log(count);
+}
+
+// 23
+export function filterOdd(array) {
+    const oddArray = array.filter((element) => element % 2 !== 0);
+    console.log(oddArray);
+}
+
+// 24
+export function greaterThan(array, number) {
+    const greaterArray = array.filter((element) => element > number);
+
+    console.log(greaterArray);
+}
+
+// 25
+export function factorial(number) {
+    let result = 1;
+    for(let i = 1; i <= number; i++) {
+        result = result * i;
+    }
+    console.log(result);
+}
+
+// 26
+export function separateEvenOdd(array) {
+    const even = [];
+    const odd = [];
+
+    array.forEach((element) => {
+        element % 2 === 0 ? even.push(element) : odd.push(element);
+    });
+
+    console.log(`even: [${even}], odd: [${odd}]`);
 }
