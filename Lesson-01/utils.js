@@ -1,85 +1,85 @@
 
 // 1
-export function productInfo(item, price) {
+function productInfo(item, price) {
     const formattedPrice = price.toLocaleString('en-US');
     return `Sản phẩm: ${item}, Giá: ${formattedPrice} VNĐ`;
 }
 
 // 2
-export function greet(name) {
+function greet(name) {
     return `Xin chào, ${name}!`;
 }
 
 // 3
-export function sumUpTo(number) {
+function sumUpTo(number) {
     let sum = (number * (number + 1)) / 2; // using Gauss
-    console.log(sum);
+    return sum;
 }
 
 // 4
-export function square(number) {
+function square(number) {
     let square = number * number;
-    console.log(square);
+    return square;
 }
 
 // 5
-export function isEven(number) {
+function isEven(number) {
     if(number % 2 === 0)
-        console.log(true);
+        return true;
     else
-        console.log(false);
+        return false;
 }
 
 // 6
-export function firstElement(array) {
-    console.log(array[0]);
+function firstElement(array) {
+    return array[0];
 }
 
 // 7
-export function sum(...number) {
+function sum(...number) {
     let sum = number.reduce((sum, element) => sum + element, 0);
-    console.log(sum);
+    return sum;
 }
 
 // 8
-export function getOpjValue(user) {
+function getOpjValue(user) {
     // let name = user.name;
     // let age = user.age;
     return `Name: ${user.name}, Age: ${user.age}`;
 }
 
 // 9
-export function getOpjName(people) {
+function getOpjName(people) {
     const names = people.map(person => person.name).join(", ");
-    console.log(names);
+    return names;
 }
 
 // 10
-export function stringLength(string) {
+function stringLength(string) {
     const length = string.length;
-    console.log(length);
+    return length;
 }
 
 // 11
-export function toUpperCase(string) {
+function toUpperCase(string) {
     const upperCaseString = string.toUpperCase();
-    console.log(upperCaseString);
+    return upperCaseString;
 }
 
 // 12
-export function formatCurrency(number) {
+function formatCurrency(number) {
     const formatted = number.toLocaleString('en-US');
-    console.log(formatted + " VNĐ");
+    return formatted + " VNĐ";
 }
 
 // 13
-export function max(array) {
+function max(array) {
     const largest = Math.max(...array);
-    console.log(largest);
+    return largest;
 }
 
 // 14
-export function isPrime(number) {
+function isPrime(number) {
     if(number <= 1) return false;
 
     for(let i = 2; i <= Math.sqrt(number); i++) {
@@ -90,13 +90,13 @@ export function isPrime(number) {
 }
 
 // 15
-export function repeatString(string, number) {
+function repeatString(string, number) {
     let repeatString = `${string} `.repeat(number).trim();
-    console.log(repeatString);
+    return repeatString;
 }
 
 // 16
-export function sumOdd(array) {
+function sumOdd(array) {
     let sumOfOdd = array.reduce((sum, number) => {
         if(number % 2 !== 0) {
             return sum + number;
@@ -104,76 +104,76 @@ export function sumOdd(array) {
         return sum;    
     },0);
 
-    console.log(sumOfOdd);
+    return sumOfOdd;
 }
 
 // 17
-export function sumGreaterThan(array, number) {
+function sumGreaterThan(array, number) {
     let sum = array.reduce((sum, element) => {
         return element > number ? sum + element : sum;
     }, 0);
 
-    console.log(sum);
+    return sum;
 }
 
 // 18
-export function formatDate(date) {
+function formatDate(date) {
     const parts = date.split("-");
     const reverted = `${parts[2]}-${parts[1]}-${parts[0]}`;
-    console.log(reverted);
+    return reverted;
 }
 
 // 19
-export function firstThree(array) {
+function firstThree(array) {
     const elements = array.slice(0, 3);
-    console.log(elements);
+    return elements;
 }
 
 // 20
-export function containsChar(string, char) {
+function containsChar(string, char) {
     const exist = string.includes(char);
-    console.log(exist);
+    return exist;
 }
 
 // 21
-export function mergeArrays(arrayA, arrayB) {
+function mergeArrays(arrayA, arrayB) {
     const arrayC = [...arrayA, ...arrayB];
-    console.log(arrayC);
+    return arrayC;
 }
 
 // 22
-export function countOccurences(array, number) {
+function countOccurences(array, number) {
     const count = array.reduce((total, element) => {
         return element === number ? ++total : total;
     }, 0);
 
-    console.log(count);
+    return count;
 }
 
 // 23
-export function filterOdd(array) {
+function filterOdd(array) {
     const oddArray = array.filter((element) => element % 2 !== 0);
-    console.log(oddArray);
+    return oddArray;
 }
 
 // 24
-export function greaterThan(array, number) {
+function greaterThan(array, number) {
     const greaterArray = array.filter((element) => element > number);
 
-    console.log(greaterArray);
+    return greaterArray;
 }
 
 // 25
-export function factorial(number) {
+function factorial(number) {
     let result = 1;
     for(let i = 1; i <= number; i++) {
         result = result * i;
     }
-    console.log(result);
+    return result;
 }
 
 // 26
-export function separateEvenOdd(array) {
+function separateEvenOdd(array) {
     const even = [];
     const odd = [];
 
@@ -181,5 +181,62 @@ export function separateEvenOdd(array) {
         element % 2 === 0 ? even.push(element) : odd.push(element);
     });
 
-    console.log(`even: [${even}], odd: [${odd}]`);
+    return `even: [${even}], odd: [${odd}]`;
 }
+
+// 27
+function sortAsc(array) {
+    array.sort((a, b) => a - b);
+    return array;
+}
+
+// 28
+function sumEvenIndex(array) {
+    let sum = array.reduce((sum, number, index) => {
+        return index % 2 === 0 ? sum + number : sum;
+    }, 0);
+    return sum;
+}
+
+// 29
+function multiplyByTwo(array) {
+    return array.map((element) => element * 2);
+}
+
+//30
+function arrayToString(array) {
+    return array.join('');
+}
+
+export {
+    productInfo,
+    greet,
+    sumUpTo,
+    square,
+    isEven,
+    firstElement,
+    sum,
+    getOpjValue,
+    getOpjName,
+    stringLength,
+    toUpperCase,
+    formatCurrency,
+    max,
+    isPrime,
+    repeatString,
+    sumOdd,
+    sumGreaterThan,
+    formatDate,
+    firstThree,
+    containsChar,
+    mergeArrays,
+    countOccurences,
+    filterOdd,
+    greaterThan,
+    factorial,
+    separateEvenOdd,
+    sortAsc,
+    sumEvenIndex,
+    multiplyByTwo,
+    arrayToString
+};
