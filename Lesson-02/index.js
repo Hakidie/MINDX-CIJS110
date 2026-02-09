@@ -9,7 +9,19 @@ import {sumArray,
         groupByType,
         isSubset,
         findMaxKey,
-        hasDuplicate
+        hasDuplicate,
+        sumByGroup,
+        uniqueValues,
+        findLongestString,
+        intersection,
+        filterByMinValue,
+        findLongestValue,
+        groupByFirstLetter,
+        getAdult,
+        convertToArray,
+        sumByKey,
+        countWords,
+        findMinKey
 } from './utils.js'; 
 
 // 1
@@ -51,5 +63,59 @@ console.log(isSubset([1, 2, 3, 4], [2, 4]));
 // 11
 console.log(findMaxKey({ a: 10, b: 20, c: 15 }));
 
-// 12
+// 15
 console.log(hasDuplicate([1, 2, 3, 4, 2]));
+
+// 16
+console.log(sumByGroup([ { type: 'fruit', price: 10 },
+                         { type: 'vegetable', price: 20 },
+                         { type: 'fruit', price: 30 }] ));
+
+// 17
+console.log(uniqueValues([1, 2, 3], [3, 4, 5]));
+
+// 19
+console.log(findLongestString(['abc', 'abcd', 'a']));
+
+// 20
+console.log(intersection([1, 2, 3], [2, 3, 4]));
+
+// 21
+console.log(filterByMinValue([5, 10, 15, 20], 12));
+
+// 22
+const animals = {a: 'cat', 
+                 b: 'elephant', 
+                 c: 'dog'}
+
+console.log(findLongestValue(animals));
+
+// 23
+const fruits = ['apple', 'banana', 'avocado', 'blueberry']
+console.log(groupByFirstLetter(fruits));
+
+// 24
+const people = [
+    { name: 'Alice', age: 17 },
+    { name: 'Bob', age: 20 },
+    { name: 'Charlie', age: 16 },
+    { name: 'David', age: 22 }
+];
+
+console.log(getAdult(people));
+
+// 25
+console.log(convertToArray({ a: 1, b: 2, c: 3 }));
+
+// 27
+console.log(sumByKey([  { type: 'fruit', price: 10 },
+                        { type: 'vegetable', price: 20 },
+                        { type: 'fruit', price: 30 } ], 'price' ));
+
+// 28
+let str28 = "Hello world! Welcome to JavaScript"
+console.log(countWords(str28));
+
+// 29
+console.log(findMinKey({ a: 100, b: 20, c: 50 }));
+
