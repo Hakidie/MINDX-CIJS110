@@ -6,7 +6,10 @@ import {sumArray,
         findSecondLargest,
         sortProductsByPrice,
         findMostExpensiveProduct,
-        groupByType
+        groupByType,
+        isSubset,
+        findMaxKey,
+        hasDuplicate
 } from './utils.js'; 
 
 // 1
@@ -41,3 +44,12 @@ console.log(findMostExpensiveProduct([ { name: 'Product A', price: 30 },
 console.log(groupByType([ { type: 'fruit', name: 'apple' },
                           { type: 'vegetable', name: 'carrot' },
                           { type: 'fruit', name: 'banana' } ]));
+
+// 10
+console.log(isSubset([1, 2, 3, 4], [2, 4]));
+
+// 11
+console.log(findMaxKey({ a: 10, b: 20, c: 15 }));
+
+// 12
+console.log(hasDuplicate([1, 2, 3, 4, 2]));

@@ -89,6 +89,41 @@ function groupByType(arr) {
     return group;
 }
 
+// 10
+function isSubset(arr1, arr2) {
+    const arr1Set = new Set(arr1);
+    return arr2.every(element => arr1Set.has(element));
+}
+
+// 11
+function findMaxKey(obj) {
+    let largestKey = null;
+    let largestValue = Object.values(obj)[0];
+
+    for(const key in obj) {
+        if(obj[key] > largestValue) {
+            largestValue = obj[key];
+            largestKey = key;
+        }
+    }
+
+    return largestKey;
+}
+
+// 15
+function hasDuplicate(arr) {
+    const existSet = new Set();
+
+    for(const element of arr) {
+        if(existSet.has(element))
+            return true;
+        existSet.add(element);
+    }
+    return false;
+
+    // return new Set(arr).size !== arr.length; so sanh  length cua Set va arr, neu no khac => bi lap /o\
+}
+
 export {sumArray,
         countOccurrences,
         removeDuplicates,
@@ -97,5 +132,8 @@ export {sumArray,
         findSecondLargest,
         sortProductsByPrice,
         findMostExpensiveProduct,
-        groupByType
+        groupByType,
+        isSubset,
+        findMaxKey,
+        hasDuplicate
 };
