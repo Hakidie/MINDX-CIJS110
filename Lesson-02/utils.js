@@ -110,6 +110,40 @@ function findMaxKey(obj) {
     return largestKey;
 }
 
+// 12
+function mergeObjectsSumValues(obj1, obj2) {
+    const newObj = {...obj1};
+
+    for(let key in obj2) {
+        newObj[key] = (newObj[key] || 0) + obj2[key];
+    }
+
+    return newObj;
+}
+
+// 13
+function countElements(arr) {
+    const newObj = {};
+
+    for(const element of arr) {
+        newObj[element] = (newObj[element] || 0) + 1;
+    }
+
+    return newObj;
+}
+
+// 14
+function cleanObject(obj) {
+    const newObj = {...obj};
+
+    for(const key in newObj) {
+        if(newObj[key] === null || newObj[key] === undefined)
+            delete newObj[key];
+    }
+
+    return newObj;
+}
+
 // 15
 function hasDuplicate(arr) {
     const existSet = new Set();
@@ -140,6 +174,21 @@ function sumByGroup(arr) {
 function uniqueValues(arr1, arr2) {
     const mergedArray = new Set([...arr1, ...arr2]);
     return [...mergedArray];
+}
+
+// 18
+function isPermutation(arr1, arr2) {
+    if(arr1.length != arr2.length) return false;
+
+    const sortedArr1 = [...arr1].sort((a, b) => a - b);
+    const sortedArr2 = [...arr2].sort((a, b) => a - b);
+
+    for(let i = 0; i < sortedArr1.length; i++) {
+        if(sortedArr1[i] !== sortedArr2[i])
+            return false;
+    }
+
+    return true;
 }
 
 // 19
@@ -196,6 +245,11 @@ function convertToArray(obj) {
     return Object.entries(obj);
 }
 
+// 26
+function sortStringsByLength(arr) {
+    return arr.sort((elementA, elementB) => elementA.length - elementB.length);
+}
+
 // 27
 function sumByKey(arr, key) {
     return arr.reduce((sum, obj) => sum += obj[key], 0);
@@ -233,9 +287,13 @@ export {sumArray,
         groupByType,
         isSubset,
         findMaxKey,
+        mergeObjectsSumValues,
+        countElements,
+        cleanObject,
         hasDuplicate,
         sumByGroup,
         uniqueValues,
+        isPermutation,
         findLongestString,
         intersection,
         filterByMinValue,
@@ -243,6 +301,7 @@ export {sumArray,
         groupByFirstLetter,
         getAdult,
         convertToArray,
+        sortStringsByLength,
         sumByKey,
         countWords,
         findMinKey

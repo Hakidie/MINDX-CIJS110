@@ -9,9 +9,13 @@ import {sumArray,
         groupByType,
         isSubset,
         findMaxKey,
+        mergeObjectsSumValues,
+        countElements,
+        cleanObject,
         hasDuplicate,
         sumByGroup,
         uniqueValues,
+        isPermutation,
         findLongestString,
         intersection,
         filterByMinValue,
@@ -19,6 +23,7 @@ import {sumArray,
         groupByFirstLetter,
         getAdult,
         convertToArray,
+        sortStringsByLength,
         sumByKey,
         countWords,
         findMinKey
@@ -63,6 +68,16 @@ console.log(isSubset([1, 2, 3, 4], [2, 4]));
 // 11
 console.log(findMaxKey({ a: 10, b: 20, c: 15 }));
 
+// 12
+console.log(mergeObjectsSumValues( { a: 10, b: 20 }, 
+                                   { b: 30, c: 40 } ));
+
+// 13
+console.log(countElements(['a', 'b', 'a', 'c', 'b', 'a']));
+
+// 14
+console.log(cleanObject({ a: 1, b: null, c: undefined, d: 4 }));
+
 // 15
 console.log(hasDuplicate([1, 2, 3, 4, 2]));
 
@@ -73,6 +88,9 @@ console.log(sumByGroup([ { type: 'fruit', price: 10 },
 
 // 17
 console.log(uniqueValues([1, 2, 3], [3, 4, 5]));
+
+// 18
+console.log(isPermutation([1, 2, 3], [3, 2, 1]));
 
 // 19
 console.log(findLongestString(['abc', 'abcd', 'a']));
@@ -106,6 +124,9 @@ console.log(getAdult(people));
 
 // 25
 console.log(convertToArray({ a: 1, b: 2, c: 3 }));
+
+// 26
+console.log(sortStringsByLength(['a', 'ccc', 'bb']));
 
 // 27
 console.log(sumByKey([  { type: 'fruit', price: 10 },
