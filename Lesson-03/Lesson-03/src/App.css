@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  min-height: 100vh;
+  padding: 26px;
+  background-color: white;
+}
+
+.home {
+  display: flex;
+  flex-direction: column; 
+  width: 100%;
+  flex-grow: 1;
+  /* border: 1px solid red; */
+}
+
+.header {
+  padding: 18px 0px;
+}
+
+.main {
+  flex-grow: 1;
+  border: 1px solid red;
+}
