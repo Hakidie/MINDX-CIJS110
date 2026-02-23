@@ -1,5 +1,6 @@
 import './App.css'
 import Toolbar from './components/Toolbar/index.jsx';
+import Column from './components/Column/index.jsx';
 
 function App() {
   
@@ -12,7 +13,7 @@ function App() {
         </div>
         
         <div className='main'>
-
+          <Column />
         </div>
       </div>
       
