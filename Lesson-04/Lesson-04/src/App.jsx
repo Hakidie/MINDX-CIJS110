@@ -2,6 +2,7 @@ import './App.css'
 import React, { useState } from 'react';
 import Toolbar from './components/Toolbar/index.jsx';
 import Column from './components/Column/index.jsx';
+import Modal from './components/Modal/modal.jsx';
 import {toDoData, inProgressData, doneData, inReviewData} from './components/Data/data.jsx';
 
 function App() {
@@ -14,11 +15,20 @@ function App() {
         );
     };
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    function toggleModal() {
+      setIsModalOpen(!isModalOpen);
+    }
+
+    console.log(`Current modal state: ${isModalOpen}`);
+
   return (
     <>
+      
       <div className="home">
         <div className="header">
-          <Toolbar onSearch={setSearchTerm}/>
+          <Toolbar onSearch={setSearchTerm} toggleModal={toggleModal} />
         </div>
         
         <div className='main'>
@@ -26,6 +36,8 @@ function App() {
           <Column columnTitle="In Progress" cardsData={filterCards(inProgressData)}/>
           <Column columnTitle="In Review" cardsData={filterCards(inReviewData)}/>
           <Column columnTitle="Done" cardsData={filterCards(doneData)}/>
+
+          <Modal isOpened={isModalOpen} toggleModal={toggleModal}/>
         </div>
       </div>
       
