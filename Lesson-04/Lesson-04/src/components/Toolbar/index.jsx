@@ -2,10 +2,10 @@ import './styles.css';
 import Searchbar from '../Search_bar/index.jsx';
 import Button from '../Button/index.jsx';
 
-function Toolbar() {
+function Toolbar({ onSearch }) {
     return (
         <div className="toolbar_container">
-            <Searchbar />
+            <Searchbar onSearch={onSearch}/>
             <Button />
         </div>
     )
