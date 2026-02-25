@@ -2,11 +2,11 @@ import './styles.css';
 import Searchbar from '../Search_bar/index.jsx';
 import Button from '../Button/index.jsx';
 
-function Toolbar({ onSearch }) {
+function Toolbar({ onSearch, toggleModal }) {
     return (
         <div className="toolbar_container">
             <Searchbar onSearch={onSearch}/>
-            <Button />
+            <Button toggleModal={toggleModal} />
         </div>
     )
 }
