@@ -5,23 +5,47 @@ import Column from './components/Column/index.jsx';
 import Modal from './components/Modal/modal.jsx';
 import {toDoData, inProgressData, doneData, inReviewData} from './components/Data/data.jsx';
 
+const columnConfig = [
+  { key: "toDo", title: "To do" },
+  { key: "inProgress", title: "In Progress" },
+  { key: "inReview", title: "In Review" },
+  { key: "done", title: "Done" }
+];
+
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeColumn, setActiveColumn] = useState(null);
+  
   const filterCards = (cards) => {
-        return cards.filter(card => 
-            card.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-            card.content.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    };
+    return cards.filter(card => 
+      card.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      card.content.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  };
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+  function toggleModal() {
+    setIsModalOpen(!isModalOpen);
+  }
 
-    function toggleModal() {
-      setIsModalOpen(!isModalOpen);
-    }
+  const addTask = (newTask) => {
+    if (!activeColumn) return;
 
-    console.log(`Current modal state: ${isModalOpen}`);
+    setColumns(prev => ({
+      ...prev,
+      [activeColumn]: [
+        ...prev[activeColumn],
+        { ...newTask, id: Date.now() }
+      ]
+    }));
+  };
+
+  const [columns, setColumns] = useState({
+    toDo: toDoData,
+    inProgress: inProgressData,
+    inReview: inReviewData,
+    done: doneData
+  });
 
   return (
     <>
@@ -32,12 +56,21 @@ function App() {
         </div>
         
         <div className='main'>
-          <Column columnTitle="To do" cardsData={filterCards(toDoData)}/>
-          <Column columnTitle="In Progress" cardsData={filterCards(inProgressData)}/>
-          <Column columnTitle="In Review" cardsData={filterCards(inReviewData)}/>
-          <Column columnTitle="Done" cardsData={filterCards(doneData)}/>
+          {/* <Column columnTitle="To do" cardsData={filterCards(columns.toDo)} toggleModal={toggleModal} openModal={() => {setActiveColumn("toDo"); toggleModal();}}/>
+          <Column columnTitle="In Progress" cardsData={filterCards(columns.inProgress)} openModal={() => {setActiveColumn("inProgress"); toggleModal();}}/>
+          <Column columnTitle="In Review" cardsData={filterCards(columns.inReview)} openModal={() => {setActiveColumn("inReview"); toggleModal();}}/>
+          <Column columnTitle="Done" cardsData={filterCards(columns.done)} openModal={() => {setActiveColumn("done"); toggleModal();}}/> */}
 
-          <Modal isOpened={isModalOpen} toggleModal={toggleModal}/>
+          {columnConfig.map(column => (
+            <Column
+              key={column.key}
+              columnTitle={column.title}
+              cardsData={filterCards(columns[column.key])}
+              openModal={() => {setActiveColumn(column.key); toggleModal();}}
+            />
+          ))}
+
+          <Modal isOpened={isModalOpen} toggleModal={toggleModal} onSave={addTask}/>
         </div>
       </div>
       
