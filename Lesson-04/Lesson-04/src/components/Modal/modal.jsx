@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 import flagRedIcon from '../../assets/flag-red-icon.svg';
 import flagYellowIcon from '../../assets/flag-yellow-icon.svg';
@@ -11,7 +11,7 @@ const flags = [
   { id: 3, src: flagRedIcon }
 ];
 
-function Modal({ isOpened, toggleModal, onSave }) {
+function Modal({ isOpened, toggleModal, onSave, editingCard }) {
     const [flagIndex, setFlagIndex] = useState(0);
     const [formData, setFormData] = useState({
         id: '',
@@ -23,7 +23,7 @@ function Modal({ isOpened, toggleModal, onSave }) {
         deadline: ''
     });
 
-    if(isOpened == false) return null;
+    
 
     
     const cycleFlag = (e) => {
@@ -62,6 +62,14 @@ function Modal({ isOpened, toggleModal, onSave }) {
         onSave(formData);
         toggleModal();
     };
+
+    useEffect(() => {
+        if (editingCard) {
+            setFormData(editingCard);
+        }
+    }, [editingCard]);
+
+    if(isOpened == false) return null;
 
     return (
         <div className="modal_container">
@@ -109,7 +117,7 @@ function Modal({ isOpened, toggleModal, onSave }) {
                     <div className='form-top-right'>
                         <div className='form-input-box'>
                             <p>Assign</p>
-                            <select className="assign-select" name='assigned' defaultValue="" value={formData.assigned || ""} onChange={handleChange}>
+                            <select className="assign-select" name='assigned' value={formData.assigned || ""} onChange={handleChange}>
                                 <option value="" disabled hidden>Nguyễn Văn A</option>
                                 <option value="Nguyễn Văn A">Nguyễn Văn A</option>
                                 <option value="Trịnh Hồng M">Trịnh Hồng M</option>
@@ -122,7 +130,7 @@ function Modal({ isOpened, toggleModal, onSave }) {
 
                 <div className='form-bottom'>
                     <p>Status</p>
-                    <select className="status-select" name='status' defaultValue="" value={formData.status} onChange={handleChange}>
+                    <select className="status-select" name='status' value={formData.status} onChange={handleChange}>
                         <option value="" disabled hidden>Choose status</option>
                         <option value={1}>1</option>
                         <option value={2}>2</option>

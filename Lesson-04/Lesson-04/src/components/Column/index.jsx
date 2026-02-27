@@ -2,7 +2,7 @@ import './styles.css';
 import Card from '../Card/index.jsx';
 // import Button from '../Button/index.jsx';
 
-function Column({ columnTitle, cardsData, openModal }) {
+function Column({ columnTitle, cardsData, openModal, columnKey, onEditCard }) {
     return (
         <div className="column_container">
             <div className="column_header">
@@ -28,6 +28,9 @@ function Column({ columnTitle, cardsData, openModal }) {
                         status={item.status}
                         flag={item.flag}
                         deadline={item.deadline}
+                        openModal={() => {
+                            onEditCard(item, columnKey);
+                        }}
                     />
                 ))}
             </div>

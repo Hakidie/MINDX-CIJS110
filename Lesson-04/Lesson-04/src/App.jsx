@@ -16,6 +16,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeColumn, setActiveColumn] = useState(null);
+  const [editingCard, setEditingCard] = useState(null);
   
   const filterCards = (cards) => {
     return cards.filter(card => 
@@ -25,7 +26,10 @@ function App() {
   };
 
   function toggleModal() {
-    setIsModalOpen(!isModalOpen);
+    setIsModalOpen(prev => {
+      if (prev === true) setEditingCard(null);
+      return !prev;
+    });
   }
 
   const addTask = (newTask) => {
@@ -38,6 +42,16 @@ function App() {
         { ...newTask, id: Date.now() }
       ]
     }));
+  };
+
+  const updateTask = (updatedTask) => {
+    setColumns(prev => ({
+      ...prev,
+      [activeColumn]: prev[activeColumn].map(card =>
+        card.id === updatedTask.id ? updatedTask : card
+      )
+    }));
+    setEditingCard(null);
   };
 
   const [columns, setColumns] = useState({
@@ -64,13 +78,23 @@ function App() {
           {columnConfig.map(column => (
             <Column
               key={column.key}
+              columnKey={column.key}
               columnTitle={column.title}
               cardsData={filterCards(columns[column.key])}
-              openModal={() => {setActiveColumn(column.key); toggleModal();}}
+              openModal={() => {
+                setActiveColumn(column.key);
+                setEditingCard(null);
+                setIsModalOpen(true);
+              }}
+              onEditCard={(card, columnKey) => {
+                setActiveColumn(columnKey);
+                setEditingCard(card);
+                setIsModalOpen(true);
+              }}
             />
           ))}
 
-          <Modal isOpened={isModalOpen} toggleModal={toggleModal} onSave={addTask}/>
+          <Modal isOpened={isModalOpen} toggleModal={toggleModal} onSave={editingCard ? updateTask : addTask} editingCard={editingCard}/>
         </div>
       </div>
       

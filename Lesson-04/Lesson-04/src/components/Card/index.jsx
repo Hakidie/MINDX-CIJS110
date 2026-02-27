@@ -9,7 +9,7 @@ import clockIcon from '../../assets/clock-icon.svg';
 // import Searchbar from '../Search_bar/index.jsx';
 // import Button from '../Button/index.jsx';
 
-function Card({ title, content, assigned, status, flag, deadline }) {
+function Card({ title, content, assigned, status, flag, deadline, openModal }) {
     const currentStatus = status == 4 ? statusFinishedIcon : statusIcon;
     console.log(status);
 
@@ -26,7 +26,7 @@ function Card({ title, content, assigned, status, flag, deadline }) {
             <div className="card_upper">
                 <div className="card_header">
                     <p className="card_header_title">{title}</p>
-                    <button className="card_settings_button">
+                    <button className="card_settings_button" onClick={openModal}>
                         <img src={editIcon} alt="edit icon" />
                     </button>
                 </div>
