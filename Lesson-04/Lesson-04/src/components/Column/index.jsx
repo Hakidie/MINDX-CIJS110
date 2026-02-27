@@ -2,7 +2,7 @@ import './styles.css';
 import Card from '../Card/index.jsx';
 // import Button from '../Button/index.jsx';
 
-function Column({ columnTitle, cardsData }) {
+function Column({ columnTitle, cardsData, openModal }) {
     return (
         <div className="column_container">
             <div className="column_header">
@@ -12,7 +12,8 @@ function Column({ columnTitle, cardsData }) {
                 </div>
                 
                 <div className="column_header_right">
-                    <button className="add_card_button">+</button>
+                    {/* <button className="add_card_button" onClick={toggleModal}>+</button> */}
+                    <button className="add_card_button" onClick={openModal}>+</button>
                     <button className="column_settings_button">⋯</button>
                 </div>
             </div>

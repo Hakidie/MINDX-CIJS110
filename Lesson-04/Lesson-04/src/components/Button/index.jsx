@@ -1,8 +1,8 @@
 import './styles.css';
 
-function Button() {
+function Button({ toggleModal }) {
     return (
-        <button className="button">
+        <button className="button" onClick={toggleModal} >
             New item
         </button>
     )
