@@ -1,0 +1,16 @@
+.input-container {
+    span {
+        color: black;
+    }
+
+    input {
+        background-color: transparent;
+        color: black;
+    }
+}
+
+button {
+    border: 1px solid grey;
+    background-color: transparent;
+    color: black;
+}
