@@ -1,0 +1,49 @@
+.large-card-container {
+    position: relative;
+    width: 1170px;
+    height: 400px;
+    margin-top: 24px;
+    overflow: hidden;
+    border-radius: 12px;
+    /* border: 1px solid red; */
+}
+
+.large-card-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 5;
+}
+
+.large-card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 16px;
+
+    width: 60%;
+    height: 100%;
+    padding: 47px;
+    z-index: 15;
+    background: transparent;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+}
+
+.large-card-info h3 {
+    font-size: 36px;
+    font-weight: 600;
+    color: white;
+    background: transparent;
+}
+
+.large-card-info p {
+    font-size: 16px;
+    color: white;
+    background: transparent;
+}
+

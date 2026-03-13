@@ -1,0 +1,33 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 42px;
+
+    margin: 42px 135px 15px 135px;
+    /* border: 1px solid red; */
+}
+
+.section-container {
+    h2 {
+        font-size: 32px;
+        font-weight: 600;
+        color: white;
+    }
+
+    p {
+        font-size: 22px;
+        color: #868686; 
+    }
+}
+
+.list-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    /* border: 1px solid red; */
+    width: 100%;
+    margin-top: 20px;
+}

@@ -1,0 +1,43 @@
+.card-container {
+    position: relative;
+    width: 170px;
+    height: 285px;
+    overflow: hidden;
+    background: transparent;
+    /* border: 1px solid red; */
+    cursor: pointer;
+}
+
+.card-container h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: transparent;
+    text-align: center;
+}
+
+.card-episode {
+    position: absolute;
+    bottom: 31px;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 23px;
+
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 12px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.card-episode p {
+    margin-bottom: 13px;
+    font-size: 16px;
+    color: white;
+    background: transparent;
+}
+
