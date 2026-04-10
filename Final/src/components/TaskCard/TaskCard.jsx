@@ -1,7 +1,7 @@
 import './TaskCard.css';
 
 import { useState } from 'react';
-import removeTask from '../../utils/removeTab';
+import removeTask from '../../utils/removeTask';
 import updateTask from '../../utils/updateTask';
 
 import trashIcon from '../../assets/delete.png';
@@ -10,10 +10,14 @@ const TaskCard = ({ task, tasks, setTasks, activeTab }) => {
     const [status, setStatus] = useState(task.active);
 
     const handleStatus = () => {
-        // task.active = !status;
         setStatus(!status);
         console.log(task);
         updateTask(task, tasks, setTasks);
+    };
+
+    const handleRemove = () => {
+        removeTask(task, tasks, setTasks);
+        console.log(task);
     };
 
     return (
@@ -21,7 +25,7 @@ const TaskCard = ({ task, tasks, setTasks, activeTab }) => {
             <input type='checkbox' checked={!status} onChange={handleStatus}/>
             <p className={`task-status ${status === false ? "finish" : ""}`}>{task.text}</p>
             {activeTab === 'completed' &&
-                <button onClick={() => removeTask(task, tasks, setTasks)}><img src={trashIcon} alt='delele icon'/></button>
+                <button onClick={handleRemove}><img src={trashIcon} alt='delele icon'/></button>
             }
         </div>
     );

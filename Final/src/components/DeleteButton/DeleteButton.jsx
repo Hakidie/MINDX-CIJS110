@@ -1,13 +1,17 @@
 import './DeleteButton.css';
 
-import removeAllTab from '../../utils/removeAllTab';
+import removeAllTask from '../../utils/removeAllTask';
 
 import trashIcon from '../../assets/delete.png';
 
-const DeleteButton = ({ tasks, setTasks }) => {
+const DeleteButton = ({ setTasks }) => {
+    const handleDelete = () => {
+        removeAllTask(setTasks)
+    };
+
     return (
         <div className='delete-button-container'>
-            <button onClick={() => removeAllTab(tasks, setTasks)}><img src={trashIcon} alt='delele icon'/>delete all</button>
+            <button onClick={handleDelete}><img src={trashIcon} alt='delele icon'/>delete all</button>
         </div>
     );
 };

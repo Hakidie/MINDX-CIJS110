@@ -1,18 +1,15 @@
 import './ToDo.css';
 
 import { useState } from 'react';
-import tabFilter from '../../utils/tabFilter';
-import addTab from '../../utils/addTab';
+import taskFilter from '../../utils/taskFilter';
 
 import TabBar from '../../components/TabBar/TabBar';
-import InputBar from '../../components/InputBar/InputBar';
-import AddButton from '../../components/AddButton/AddButon';
+import ToolBar from '../../components/ToolBar/ToolBar';
 import DeleteButton from '../../components/DeleteButton/DeleteButton';
 import Tab from '../../components/Tab/Tab';
 
 const ToDo = () => {
     const [activeTab, setActiveTab] = useState('all');
-    const [inputValue, setInputValue] = useState('');
 
     const [tasks, setTasks] = useState(() => {
         const savedTasks = localStorage.getItem('myTasksss');
@@ -41,16 +38,13 @@ const ToDo = () => {
                 <TabBar activeTab={activeTab} setActiveTab={setActiveTab} />
 
                 {activeTab !== 'completed' &&
-                    <div className='input-container'>
-                        <InputBar inputValue={inputValue} setInputValue={setInputValue} />
-                        <AddButton addTab={addTab} tasks={tasks} setTasks={setTasks} inputValue={inputValue} setInputValue={setInputValue}/>
-                    </div>
+                    <ToolBar tasks={tasks} setTasks={setTasks}/>
                 }
 
                 <div className='tasks-container'>
                     {activeTab === 'all' && <Tab tasks={tasks} setTasks={setTasks} activeTab={activeTab} />}
-                    {activeTab === 'active' && <Tab tasks={tabFilter(tasks, true)} setTasks={setTasks} activeTab={activeTab} />}
-                    {activeTab === 'completed' && <Tab tasks={tabFilter(tasks, false)} setTasks={setTasks} activeTab={activeTab} />}
+                    {activeTab === 'active' && <Tab tasks={taskFilter(tasks, true)} setTasks={setTasks} activeTab={activeTab} />}
+                    {activeTab === 'completed' && <Tab tasks={taskFilter(tasks, false)} setTasks={setTasks} activeTab={activeTab} />}
                 </div>
 
                 {activeTab === 'completed' &&

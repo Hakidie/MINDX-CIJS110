@@ -1,7 +1,5 @@
 import './Tab.css';
 
-import { useState } from 'react';
-
 import TaskCard from '../../components/TaskCard/TaskCard';
 
 const Tab = ({ tasks, setTasks, activeTab }) => {

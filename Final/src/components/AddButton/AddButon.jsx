@@ -1,9 +1,9 @@
 import './AddButton.css';
 
-const AddButton = ({ addTab, tasks, setTasks, inputValue, setInputValue }) => {
+const AddButton = ({ handleSubmit }) => {
     return (
         <div className='add-button-container'>
-            <button onClick={() => addTab(tasks, setTasks, inputValue, setInputValue)}>Add</button>
+            <button onClick={handleSubmit}>Add</button>
         </div>
     );
 };
