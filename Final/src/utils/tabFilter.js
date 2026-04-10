@@ -1,5 +1,5 @@
 const tabFilter = (tasks, active) => {
-    let filtedList = tasks.filter((task) => task.active === !active);
+    let filtedList = tasks.filter((task) => task.active === active);
     return filtedList;
 };
 
