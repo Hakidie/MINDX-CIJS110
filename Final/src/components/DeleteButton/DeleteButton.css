@@ -1,0 +1,22 @@
+.delete-button-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    width: 150px;
+    height: 100%;
+    margin-left: auto;
+    padding: 10px;
+
+    border: none;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}

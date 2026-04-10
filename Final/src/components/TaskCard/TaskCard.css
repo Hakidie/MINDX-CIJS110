@@ -1,0 +1,27 @@
+.task-card-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+.task-card-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: auto;
+
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.task-status.finish {
+    text-decoration: line-through;
+}

@@ -1,0 +1,10 @@
+.add-button-container button {
+    width: 100px;
+    height: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}

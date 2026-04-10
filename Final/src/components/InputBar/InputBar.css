@@ -1,0 +1,16 @@
+.input-bar-container {
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 6px;
+    padding: 7px;
+
+    input {
+        width: 100%;
+        border: none;
+        outline: none;
+    }
+
+    input::placeholder {
+        color: gray;
+    }
+}
