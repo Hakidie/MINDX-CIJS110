@@ -1,7 +1,6 @@
 import './ToDo.css';
 
 import { useState } from 'react';
-import taskFilter from '../../utils/taskFilter';
 
 import TabBar from '../../components/TabBar/TabBar';
 import ToolBar from '../../components/ToolBar/ToolBar';
@@ -43,8 +42,8 @@ const ToDo = () => {
 
                 <div className='tasks-container'>
                     {activeTab === 'all' && <Tab tasks={tasks} setTasks={setTasks} activeTab={activeTab} />}
-                    {activeTab === 'active' && <Tab tasks={taskFilter(tasks, true)} setTasks={setTasks} activeTab={activeTab} />}
-                    {activeTab === 'completed' && <Tab tasks={taskFilter(tasks, false)} setTasks={setTasks} activeTab={activeTab} />}
+                    {activeTab === 'active' && <Tab tasks={tasks} setTasks={setTasks} activeTab={activeTab} />}
+                    {activeTab === 'completed' && <Tab tasks={tasks} setTasks={setTasks} activeTab={activeTab} />}
                 </div>
 
                 {activeTab === 'completed' &&
