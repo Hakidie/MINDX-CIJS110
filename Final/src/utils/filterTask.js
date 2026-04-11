@@ -1,8 +1,10 @@
 const filterTask = (tasks, activeTab) => {
-    if (activeTab === 'all') return tasks;
-    if (activeTab === 'active') return tasks.filter(task => task.active === true);
-    if (activeTab === 'completed') return tasks.filter(task => task.active === false);
-    return tasks;
+    switch (activeTab) {
+        case 'all': return tasks;
+        case 'active': return tasks.filter(task => task.active === true);
+        case 'completed': return tasks.filter(task => task.active === false);
+        default: return tasks;
+    };
 };
 
 export default filterTask;
